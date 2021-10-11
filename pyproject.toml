@@ -11,10 +11,12 @@ beautifulsoup4 = "*"
 pydantic = "*"
 tqdm = "*"
 requests = "*"
-click = "*"
-tweepy = "*"
+typer = "*"
 
 [tool.poetry.dev-dependencies]
+notebook = "*"
+pandas = "*"
+matplotlib = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
