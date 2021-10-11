@@ -13,5 +13,7 @@ From vox.com:
 
 ## Collecting data
 `PYTHONPATH=. python collect_data/run.py collect-all-dialogs --interview-paths=rev-interviews.jsonlines,vox-interview.jsonlines --save-path=all_dialog_dataset.csv`  
+
 `PYTHONPATH=. python collect_data/run.py collect-short-answer-dialogs --interview-paths=rev-interviews.jsonlines,vox-interview.jsonlines --save-path=short_answer_dialog_dataset.csv`  
+
 `PYTHONPATH=. python collect_data/run.py collect-phrases-dialogs --interview-paths=rev-interviews.jsonlines,vox-interview.jsonlines --save-path=all_phrases_dataset.csv`
