@@ -1,4 +1,6 @@
 # elon_musk_dataset
+Preparing datasets with Elon Musk phrases.
+
 ## Preparing
 1. [Install poetry](https://python-poetry.org/docs/#installation)
 2. Install dependencies: `poetry install`
@@ -12,8 +14,12 @@ From vox.com:
 `PYTHONPATH=. python scrap/vox.py --interview_url https://www.vox.com/2018/11/2/18053428/recode-decode-full-podcast-transcript-elon-musk-tesla-spacex-boring-company-kara-swisher --save_path vox-interview.jsonlines`  
 
 ## Collecting data
+### By script
 `PYTHONPATH=. python collect_data/run.py collect-all-dialogs --interview-paths=rev-interviews.jsonlines,vox-interview.jsonlines --save-path=all_dialog_dataset.csv`  
 
 `PYTHONPATH=. python collect_data/run.py collect-short-answer-dialogs --interview-paths=rev-interviews.jsonlines,vox-interview.jsonlines --save-path=short_answer_dialog_dataset.csv`  
 
 `PYTHONPATH=. python collect_data/run.py collect-all-phrases --interview-paths=rev-interviews.jsonlines,vox-interview.jsonlines --save-path=all_phrases_dataset.csv`
+### By ipynb
+- `notebooks/create_twitter_dataset.ipynb`
+- `notebooks/create_oneliners_dataset.ipynb`
