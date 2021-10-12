@@ -1,7 +1,7 @@
 from pathlib import Path
-from typing import List
 
 import typer
+import pandas as pd
 
 from constants import ELON_MUSK_LOWERED
 from collect_data.collectors import collect_dialog_dataset, collect_phrase_dataset
@@ -22,6 +22,7 @@ def collect_short_answer_dialogs(
     writer = CsvWriter(save_path)
     filter_ = ChainDialogFilter([AuthorDialogFilter(ELON_MUSK_LOWERED), MaxAnswerLengthFilter(max_answer_length=50)])
     collect_dialog_dataset(reader, writer, filter_)
+    _postprocess_dataset(save_path)
 
 
 @app.command()
@@ -34,6 +35,7 @@ def collect_all_dialogs(
     writer = CsvWriter(save_path)
     filter_ = ChainDialogFilter([AuthorDialogFilter(ELON_MUSK_LOWERED)])
     collect_dialog_dataset(reader, writer, filter_)
+    _postprocess_dataset(save_path)
 
 
 @app.command()
@@ -46,6 +48,12 @@ def collect_all_phrases(
     writer = CsvWriter(save_path)
     filter_ = ChainFilter([AuthorFilter(ELON_MUSK_LOWERED)])
     collect_phrase_dataset(reader, writer, filter_)
+    _postprocess_dataset(save_path)
+
+
+def _postprocess_dataset(path: Path):
+    df = pd.read_csv(path).dropna().drop_duplicates()
+    df.to_csv(path, index=False)
 
 
 if __name__ == '__main__':
