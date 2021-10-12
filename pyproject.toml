@@ -12,6 +12,7 @@ pydantic = "*"
 tqdm = "*"
 requests = "*"
 typer = "*"
+click = "*"
 
 [tool.poetry.dev-dependencies]
 notebook = "*"
